@@ -7,6 +7,10 @@ To set up the environment, run the following command:
 ```sh
 bash ./bin/setup.sh
 ```
+To activate the virtual environment, run: 
+```sh
+source venv/bin/activate
+```
 ### Linting
 To check the code for style guide enforcement and linting errors, use:
 ```sh

@@ -4,13 +4,15 @@ setuptools
 # Runtime dependencies
 fastapi
 uvicorn
-SQLAlchemy
-databases[postgresql]
 python-dotenv
+beanie
+motor
+pydantic
 
 # Test dependencies
 pytest
 httpx
+factory_boy
 pytest-describe
 
 # Code coverage dependencies

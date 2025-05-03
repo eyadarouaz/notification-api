@@ -10,7 +10,7 @@ from mailersend import emails
 from app.config import settings
 from app.database import init_db
 from app.logging_config import setup_logging
-from app.models import Notification
+from app.models import Notification, NotificationCreate
 
 setup_logging()
 logger = logging.getLogger(__name__)
@@ -101,3 +101,11 @@ async def read_notification():
     if not notifications:
         raise HTTPException(status_code=404, detail="No notifications found")
     return notifications
+
+
+@app.post("/notification", response_model=Notification)
+async def create_notification(notification_data: NotificationCreate):
+    notification = Notification(**notification_data.dict())
+    await notification.insert()
+    logger.info(f"Created notification for recipient {notification.recipient_id}")
+    return notification

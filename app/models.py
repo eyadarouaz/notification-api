@@ -8,7 +8,7 @@ from pydantic import BaseModel, Field
 class Notification(Document):
     id: UUID = Field(default_factory=uuid4)
     message: str
-    recipient_id: UUID
+    recipient_id: int
     created_at: datetime = Field(default_factory=datetime.utcnow)
 
     class Settings:
@@ -25,4 +25,4 @@ class Notification(Document):
 
 class NotificationCreate(BaseModel):
     message: str
-    recipient_id: UUID
+    recipient_id: int

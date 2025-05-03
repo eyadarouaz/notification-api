@@ -8,9 +8,13 @@ python-dotenv
 beanie
 motor
 pydantic
+azure-servicebus
+mailersend
+asyncio
 
 # Test dependencies
 pytest
+pytest-asyncio
 httpx
 factory_boy
 pytest-describe

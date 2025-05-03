@@ -6,7 +6,7 @@ load_dotenv()
 
 
 class Settings:
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "db_string")
+    DATABASE_URL: str = os.getenv("DATABASE_URL", "mongodb://localhost:27017")
     TEST_DATABASE_NAME: str = os.getenv("TEST_DATABASE_NAME", "test-notif-db")
     CONNECTION_STRING: str = os.getenv("AZURE_SERVICE_BUS_CONNECTION_STRING")
     QUEUE_NAME: str = os.getenv("AZURE_SERVICE_BUS_QUEUE_NAME")

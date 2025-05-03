@@ -1,4 +1,5 @@
 # Notification API
+[![CI Build](https://github.com/eyadarouaz/notification-api/actions/workflows/ci-build.yaml/badge.svg)](https://github.com/eyadarouaz/notification-api/actions/workflows/ci-build.yaml)  
 API for notification microservice
 ## Commands
 

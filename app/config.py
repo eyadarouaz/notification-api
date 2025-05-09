@@ -11,7 +11,7 @@ class Settings:
     CONNECTION_STRING: str = os.getenv("AZURE_SERVICE_BUS_CONNECTION_STRING")
     QUEUE_NAME: str = os.getenv("AZURE_SERVICE_BUS_QUEUE_NAME")
     API_KEY: str = os.getenv("MAILERSEND_API_KEY")
-    FROM_EMAIL: str = os.getenv("FROM_EMAIL")
+    FROM_EMAIL: str = os.getenv("FROM_EMAIL", "no-reply@test-r83ql3ppyxvgzw1j.mlsender.net")
 
 
 settings = Settings()

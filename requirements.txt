@@ -11,6 +11,7 @@ pydantic
 azure-servicebus
 mailersend
 asyncio
+python-jose
 
 # Test dependencies
 pytest

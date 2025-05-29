@@ -4,13 +4,14 @@ import logging
 
 from azure.servicebus import ServiceBusMessage
 from azure.servicebus.aio import ServiceBusClient
-from fastapi import FastAPI, HTTPException
+from fastapi import Depends, FastAPI, HTTPException
 from mailersend import emails
 
 from app.config import settings
 from app.database import init_db
 from app.logging_config import setup_logging
 from app.models import Notification, NotificationCreate
+from app.utils import TokenData, get_current_user
 
 setup_logging()
 logger = logging.getLogger(__name__)
@@ -96,10 +97,14 @@ def read_root():
 
 
 @app.get("/notification", response_model=list[Notification])
-async def read_notification():
-    notifications = await Notification.find_all().to_list()
+async def read_notification(current_user: TokenData = Depends(get_current_user)):
+    notifications = await Notification.find(
+        Notification.recipient_id == current_user.user_id
+    ).to_list()
     if not notifications:
-        raise HTTPException(status_code=404, detail="No notifications found")
+        raise HTTPException(
+            status_code=404, detail="No notifications found for this user"
+        )
     return notifications
 
 

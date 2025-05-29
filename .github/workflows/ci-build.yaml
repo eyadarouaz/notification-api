@@ -23,6 +23,7 @@ jobs:
     env:
       DATABASE_URI: mongodb://mongo:27017
       TEST_DATABASE_NAME: ${{ vars.TEST_DATABASE_NAME }}
+      SECRET_KEY: ${{ secrets.JWT_SECRET_KEY }}
 
     steps:
       - name: Checkout

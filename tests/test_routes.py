@@ -46,7 +46,7 @@ async def _create_notifications(client: AsyncClient, count):
 
 
 def create_test_jwt(user_id: int) -> str:
-    payload = {"sub": str(user_id)}
+    payload = {"id": str(user_id)}
     token = jwt.encode(payload, settings.SECRET_KEY, algorithm="HS256")
     return token
 
